@@ -1,2 +1,1 @@
-# alx-higher_level_programming
-ALX High level repo
+Repo for thye Solutions of the python projects in the ALX Software Course
