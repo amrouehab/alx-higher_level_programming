@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * check_cycle - checks if a singly linked list has a cycle in it
@@ -8,19 +10,30 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *slow = list;
-	listint_t *fast = list;
+	listint_t *current;
+	listint_t *visited_nodes[1024];  /* Array to store pointers */
+	int i;
 
-	if (list == NULL)
-		return (0);
+	/* Initialize all pointers to NULL */
+	for (i = 0; i < 1024; i++)
+		visited_nodes[i] = NULL;
 
-	while (fast != NULL && fast->next != NULL)
+	current = list;
+	i = 0;
+	while (current != NULL)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
+		/* Check if current node is already in visited_nodes */
+		for (int j = 0; j < 1024; j++)
+		{
+			if (visited_nodes[j] == current)
+				return (1);
+		}
+		
+		/* Add current node to visited_nodes */
+		visited_nodes[i % 1024] = current;
+		i++;
 
-		if (slow == fast)
-			return (1);
+		current = current->next;
 	}
 
 	return (0);
