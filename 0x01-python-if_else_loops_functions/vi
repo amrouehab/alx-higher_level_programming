@@ -1,0 +1,4 @@
+#!/usr/bin/python3
+def print_hex_numbers():
+    for i in range(99):
+        print(f"{i} = {hex(i)}")
