@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def print_alphabet_exclude():
-    for letter in range(ord('a'), ord('z') + 1):
-        if chr(letter) not in ['q', 'e']:
-            print(chr(letter), end="")
+# Loop through the ASCII values for lowercase letters
+for char in range(97, 123):
+    if chr(char) != 'q' and chr(char) != 'e':
+        print(chr(char), end="")

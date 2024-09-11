@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-def print_alphabet():
-    for letter in range(ord('a'), ord('z') + 1):
-        print(chr(letter), end="")
+
+# Loop through the ASCII values for lowercase letters
+for char in range(97, 123):
+    print(chr(char), end="")
