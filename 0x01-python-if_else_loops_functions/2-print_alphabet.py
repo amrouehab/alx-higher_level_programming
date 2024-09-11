@@ -1,3 +1,4 @@
 #!/usr/bin/python3
-
-print(''.join(chr(i) for i in range(97, 123)), end='')
+for i in range(ord('a'), ord('z') + 1):
+    print(chr(i), end="")
+print("")  # Print a newline at the end
