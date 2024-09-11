@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
 for i in range(100):
-  print("{:02d}, ".format(i), end="")  # Print first 99 numbers with comma and space
-
-print(99)  # Print the last number without comma or space
+    # Print the number with leading zeros and format the output
+    # Use a single print function and end it with ", " if it's not the last number
+    print(f"{i:02}", end=", " if i < 99 else "\n")
