@@ -1,0 +1,71 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# Valid cases
+>>> add_integer(0, 0)
+0  # 0 + 0 = 0
+>>> add_integer(15, 0)
+15  # 15 + 0 = 15
+>>> add_integer(0, 15)
+15  # 0 + 15 = 15
+>>> add_integer(-2, 2)
+0  # -2 + 2 = 0
+>>> add_integer(2, -2)
+0  # 2 + (-2) = 0
+>>> add_integer(10, 5)
+15  # 10 + 5 = 15
+>>> add_integer(-5, -5)
+-10  # -5 + (-5) = -10
+
+# Testing with one argument (default value for the second argument)
+>>> add_integer(2)
+100  # 2 + default 98 = 100
+
+# Invalid cases
+# Missing required argument
+>>> add_integer()
+Traceback (most recent call last):
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+# Passing non-integer types
+>>> add_integer('a', 'b')
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer('a', 42)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer('a')
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(42, 'b')
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+# Testing with float types (should implicitly cast to int)
+>>> add_integer(3.5, 2)
+5  # 3.5 is casted to 3; 3 + 2 = 5
+>>> add_integer(2, 3.5)
+5  # 2 + 3.5 is casted to 3; 2 + 3 = 5
+
+# Testing with float edge cases
+>>> add_integer(float('inf'), 0)
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(0, float('nan'))
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
+
+# Testing with large integers
+>>> add_integer(2147483647, 1)
+Traceback (most recent call last):
+OverflowError: integer addition result too large
+>>> add_integer(-2147483648, -1)
+Traceback (most recent call last):
+OverflowError: integer addition result too large
+
+# Testing with boolean values
+>>> add_integer(True, True)
+2  # True is treated as 1; 1 + 1 = 2
+>>> add_integer(True, False)
+1  # True is treated as 1; 1 + 0 = 1
+>>> add_integer(False, False)
+0  # Both False treated as 0; 0 + 0 = 0

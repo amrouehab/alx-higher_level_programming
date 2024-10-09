@@ -1,0 +1,21 @@
+>>> text_indentation = __import__('4-text_indentation').text_indentation
+
+>>> text_indentation("Hello. How are you?")
+Hello.
+
+How are you?
+>>> text_indentation("Wait: Is this correct? Yes.")
+Wait:
+
+Is this correct?
+
+Yes.
+>>> text_indentation("This is a test.")
+This is a test.
+
+>>> text_indentation(123)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation("")
+>>> text_indentation("No special characters")
+No special characters
