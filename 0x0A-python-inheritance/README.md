@@ -1,0 +1,1 @@
+Sol for inheritance TAsks
