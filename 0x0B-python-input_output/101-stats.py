@@ -1,14 +1,18 @@
 #!/usr/bin/python3
+'''
+This script reads stdin line by line and computes metrics.
+'''
+
 import sys
 
 def print_stats(total_size, status_counts):
-    """
+    '''
     Prints the statistics.
 
     Args:
         total_size (int): The total file size.
         status_counts (dict): A dictionary containing the count of each status code.
-    """
+    '''
     print(f"File size: {total_size}")
     for status in sorted(status_counts.keys()):
         if status_counts[status] > 0:
