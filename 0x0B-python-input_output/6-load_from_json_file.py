@@ -1,9 +1,15 @@
 #!/usr/bin/python3
-# Load an object from a file in JSON format
-
 import json
 
 def load_from_json_file(filename):
-    """Creates an object from a JSON file."""
-    with open(filename, 'r', encoding='utf-8') as f:
-        return json.load(f)
+    """
+    Creates an Object from a "JSON file".
+
+    Args:
+        filename (str): The name of the file to load the JSON representation from.
+
+    Returns:
+        object: The Python data structure represented by the JSON string in the file.
+    """
+    with open(filename, 'r') as file:
+        return json.load(file)
